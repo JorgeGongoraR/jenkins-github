@@ -2,12 +2,13 @@ pipeline {
   agent any
   
   options {
-    timeout(time: 1, unit: 'SECONDS')
+    timeout(time: 10, unit: 'SECONDS')
   }
 
   stages {
     stage('Install dependencies') {
       steps {
+        sh 'sleep 30'
         sh 'echo "Hello"'
       }
     }
