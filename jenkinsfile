@@ -6,15 +6,19 @@ pipeline {
       steps {
         sh 'sleep 30'
         sh 'echo "Hello"'
+        timeout(time: 31, unit: 'SECONDS') {
+                    sh 'echo "Me tardé 31 segundos"'
+        }
       }
-      timeout(time: 31, unit: 'SECONDS')
     }
     stage('Run tests') {
       steps {
         sh 'sleep 20'
         sh 'echo "World"'
+        timeout(time: 10, unit: 'SECONDS') {
+                    sh 'echo "Me tardé 10 segundos"'
+        }
       }
-      timeout(time: 10, unit: 'SECONDS')
     }
   }
 }
