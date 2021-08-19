@@ -4,20 +4,18 @@ pipeline {
   stages {
     stage('Install dependencies') {
       steps {
-        sh 'sleep 10'
-        sh 'echo "Hello"'
         timeout(time: 31, unit: 'SECONDS') {
-                    sh 'echo "Me tardé 31 segundos"'
+            sh 'echo "Me tardé 31 segundos"'
         }
+        sh 'sleep 10'
       }
     }
     stage('Run tests') {
       steps {
-        sh 'sleep 10'
-        sh 'echo "World"'
         timeout(time: 5, unit: 'SECONDS') {
-                    sh 'echo "Me tardé 10 segundos"'
+            sh 'echo "Me tardé 10 segundos"'
         }
+        sh 'sleep 10'
       }
     }
   }
