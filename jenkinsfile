@@ -5,17 +5,19 @@ pipeline {
     stage('Install dependencies') {
       steps {
         timeout(time: 31, unit: 'SECONDS') {
-            sh 'echo "Me tardé 31 segundos"'
+            sh 'sleep 10'
+            sh 'echo "Si pasé y me tardé 10 segundos"'
         }
-        sh 'sleep 10'
+        
       }
     }
     stage('Run tests') {
       steps {
         timeout(time: 5, unit: 'SECONDS') {
-            sh 'echo "Me tardé 10 segundos"'
+            sh 'sleep 10'
+            sh 'echo "No pasé y me tardé 10 segundos"'
         }
-        sh 'sleep 10'
+        
       }
     }
   }
