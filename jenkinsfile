@@ -2,22 +2,18 @@ pipeline {
   agent any
 
   stages {
-    stage('Install dependencies') {
-      steps {
-        timeout(time: 31, unit: 'SECONDS') {
-            sh 'sleep 10'
-            sh 'echo "Si pasé y me tardé 10 segundos"'
-        }
-        
+    stage ("A"){
+      options {
+        timeout(time: 3, unit: "SECONDS")
+      }
+      steps{
+        echo "Started stage A"
+        sleep(time: 5, unit: "SECONDS")
       }
     }
-    stage('Run tests') {
-      steps {
-        timeout(time: 5, unit: 'SECONDS') {
-            sh 'sleep 10'
-            sh 'echo "No pasé y me tardé 10 segundos"'
-        }
-        
+    stage("B"){
+      steps{
+        echo "Started stage B"
       }
     }
   }
